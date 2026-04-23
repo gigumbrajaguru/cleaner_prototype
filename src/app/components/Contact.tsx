@@ -36,7 +36,7 @@ export function Contact() {
               Get In Touch
             </h1>
             <p className="text-xl text-gray-600">
-              Ready to experience professional cleaning services? Contact us for a free quote.
+              Ready to plan professional cleaning, construction, or property maintenance work? Contact us for a free quote.
             </p>
           </div>
         </div>
@@ -170,6 +170,8 @@ export function Contact() {
                       <option value="commercial">Commercial Cleaning</option>
                       <option value="deep">Deep Cleaning</option>
                       <option value="construction">Post-Construction Cleanup</option>
+                      <option value="construction-services">Construction Services</option>
+                      <option value="maintenance">Property Maintenance</option>
                       <option value="custom">Custom Service</option>
                     </select>
                   </div>
@@ -185,7 +187,7 @@ export function Contact() {
                       onChange={handleChange}
                       rows={4}
                       className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-blue-600 focus:outline-none resize-none"
-                      placeholder="Tell us about your cleaning needs..."
+                      placeholder="Tell us about your cleaning, construction, or maintenance needs..."
                     />
                   </div>
 

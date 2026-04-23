@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { Home, Building2, Sparkles, Trash2, X } from "lucide-react";
+import {
+  Home,
+  Building2,
+  Sparkles,
+  Trash2,
+  Hammer,
+  X,
+  type LucideIcon,
+} from "lucide-react";
 
 interface Project {
   title: string;
@@ -10,7 +18,7 @@ interface Project {
 }
 
 interface Service {
-  icon: typeof Home;
+  icon: LucideIcon;
   title: string;
   description: string;
   features: string[];
@@ -117,7 +125,7 @@ export function Services() {
     {
       icon: Trash2,
       title: "Post-Construction Cleanup",
-      description: "Specialized cleaning after renovations or construction projects.",
+      description: "Specialized cleaning after renovations, repairs, or construction projects.",
       features: [
         "Dust removal",
         "Debris cleanup",
@@ -142,6 +150,37 @@ export function Services() {
           client: "Downtown Loft Apartments",
           description: "Post-renovation cleanup of converted retail space into 8 modern apartment units.",
           result: "Units were show-ready for prospective tenants. All 8 units rented within first week of listing thanks to pristine condition."
+        }
+      ]
+    },
+    {
+      icon: Hammer,
+      title: "Construction Services",
+      description: "Renovation support, repairs, finishing work, and property improvement services.",
+      features: [
+        "Minor construction work",
+        "Renovation support",
+        "Repair and finishing work",
+        "Site preparation"
+      ],
+      projects: [
+        {
+          title: "Retail Unit Fit-Out Support",
+          client: "Metro Retail Group",
+          description: "Assisted with interior partition adjustments, fixture preparation, minor repairs, and final finishing before store opening.",
+          result: "Retail space was ready for merchandising ahead of schedule with clean finishes and a smooth handover."
+        },
+        {
+          title: "Rental Property Renovation",
+          client: "Greenline Property Holdings",
+          description: "Completed light repair work, wall preparation, paint touch-ups, fixture fixes, and final construction cleanup between tenants.",
+          result: "Property was prepared for listing quickly and presented as fresh, repaired, and move-in ready."
+        },
+        {
+          title: "Office Refresh Project",
+          client: "Northpoint Consulting",
+          description: "Handled minor construction adjustments, patching, finishing, and cleaning for a working office refresh.",
+          result: "Work was completed with minimal disruption, and the office reopened with a cleaner, more professional finish."
         }
       ]
     }
@@ -205,10 +244,10 @@ export function Services() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl text-gray-900 mb-6">
-              Our Cleaning Services
+              Our Cleaning & Construction Services
             </h1>
             <p className="text-xl text-gray-600">
-              From residential to commercial spaces, we offer comprehensive cleaning solutions tailored to your needs.
+              From residential and commercial cleaning to construction support and post-project handovers, we tailor the work to your property.
             </p>
           </div>
         </div>
@@ -255,10 +294,10 @@ export function Services() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl text-gray-900 mb-6">
-            Custom Cleaning Plans Available
+            Custom Cleaning and Construction Plans Available
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Every space is unique. We'll work with you to create a cleaning plan that fits your specific needs and budget.
+            Every space is unique. We'll work with you to create a service plan that fits your cleaning, construction, maintenance, and budget needs.
           </p>
           <Link
             to="/contact"

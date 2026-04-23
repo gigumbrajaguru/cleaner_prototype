@@ -12,13 +12,15 @@ export function Layout() {
     <div className="min-h-screen flex flex-col bg-slate-50">
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <Link to="/" className="flex items-center gap-2">
               <Sparkles className="w-8 h-8 text-blue-600" />
-              <span className="text-2xl text-gray-900">SparkleClean</span>
+              <span className="text-xl text-gray-900 sm:text-2xl">
+                SparkleClean & Build
+              </span>
             </Link>
 
-            <div className="flex gap-8">
+            <div className="flex flex-wrap gap-4 sm:gap-8">
               <Link
                 to="/"
                 className={`transition-colors ${
@@ -49,6 +51,16 @@ export function Layout() {
               >
                 Contact
               </Link>
+              <Link
+                to="/admin/reviews"
+                className={`transition-colors ${
+                  isActive("/admin/reviews")
+                    ? "text-blue-600"
+                    : "text-gray-600 hover:text-blue-600"
+                }`}
+              >
+                Admin
+              </Link>
             </div>
           </div>
         </nav>
@@ -64,10 +76,10 @@ export function Layout() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Sparkles className="w-6 h-6 text-blue-400" />
-                <span className="text-xl">SparkleClean</span>
+                <span className="text-xl">SparkleClean & Build</span>
               </div>
               <p className="text-gray-400">
-                Professional cleaning services for your home and office.
+                Professional cleaning and construction support for homes, offices, and project handovers.
               </p>
             </div>
 
@@ -83,6 +95,9 @@ export function Layout() {
                 <Link to="/contact" className="text-gray-400 hover:text-white transition-colors">
                   Contact
                 </Link>
+                <Link to="/admin/reviews" className="text-gray-400 hover:text-white transition-colors">
+                  Reviews Admin
+                </Link>
               </div>
             </div>
 
@@ -97,7 +112,7 @@ export function Layout() {
           </div>
 
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>&copy; 2026 SparkleClean. All rights reserved.</p>
+            <p>&copy; 2026 SparkleClean & Build. All rights reserved.</p>
           </div>
         </div>
       </footer>

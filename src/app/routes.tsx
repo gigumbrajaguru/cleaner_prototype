@@ -1,12 +1,11 @@
-import { createBrowserRouter } from "react-router";
+import { createHashRouter } from "react-router";
 import { Layout } from "./components/Layout";
 import { Home } from "./components/Home";
 import { Services } from "./components/Services";
 import { Contact } from "./components/Contact";
+import { ReviewAdmin } from "./components/ReviewAdmin";
 
-const basename = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
-
-export const router = createBrowserRouter(
+export const router = createHashRouter(
   [
     {
       path: "/",
@@ -15,8 +14,8 @@ export const router = createBrowserRouter(
         { index: true, Component: Home },
         { path: "services", Component: Services },
         { path: "contact", Component: Contact },
+        { path: "admin/reviews", Component: ReviewAdmin },
       ],
     },
   ],
-  { basename },
 );
