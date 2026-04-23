@@ -1,12 +1,36 @@
+import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router";
 import { Sparkles } from "lucide-react";
 
 export function Layout() {
   const location = useLocation();
+  const [pendingScrollTarget, setPendingScrollTarget] = useState<string | null>(
+    null,
+  );
 
   const isActive = (path: string) => {
     return location.pathname === path;
   };
+
+  useEffect(() => {
+    if (!pendingScrollTarget) {
+      return undefined;
+    }
+
+    const timer = window.setTimeout(() => {
+      const target = document.getElementById(pendingScrollTarget);
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        setPendingScrollTarget(null);
+      }
+    }, 150);
+
+    return () => window.clearTimeout(timer);
+  }, [location.pathname, pendingScrollTarget]);
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50">
@@ -52,6 +76,13 @@ export function Layout() {
                 Contact
               </Link>
               <Link
+                to="/"
+                onClick={() => setPendingScrollTarget("submit-review")}
+                className="text-gray-600 transition-colors hover:text-blue-600"
+              >
+                Reviews
+              </Link>
+              <Link
                 to="/admin/reviews"
                 className={`transition-colors ${
                   isActive("/admin/reviews")
@@ -94,6 +125,13 @@ export function Layout() {
                 </Link>
                 <Link to="/contact" className="text-gray-400 hover:text-white transition-colors">
                   Contact
+                </Link>
+                <Link
+                  to="/"
+                  onClick={() => setPendingScrollTarget("submit-review")}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Client Reviews
                 </Link>
                 <Link to="/admin/reviews" className="text-gray-400 hover:text-white transition-colors">
                   Reviews Admin

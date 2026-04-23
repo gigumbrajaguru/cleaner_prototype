@@ -309,7 +309,10 @@ export function ClientReviews() {
             ) : null}
           </div>
 
-          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+          <div
+            id="submit-review"
+            className="scroll-mt-32 rounded-lg border border-gray-200 bg-white p-6 shadow-sm sm:p-8"
+          >
             <div className="mb-6">
               <h3 className="text-2xl text-gray-900">Submit a review</h3>
               <p className="text-gray-600">
